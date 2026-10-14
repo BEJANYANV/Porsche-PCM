@@ -1,7 +1,7 @@
 {
-  "generated": "2026-07-29",
+  "generated": "2026-10-14",
   "branch": "main",
-  "raw_url_base": "https://raw.githubusercontent.com/dspl1236/PCM-Forge/main/",
+  "raw_url_base": "https://raw.githubusercontent.com/BEJANYANV/Porsche-PCM/main/",
   "core_files": {
     "forge_splash": "core/bin/forge_splash",
     "lib_running_bin": "core/lib/running.bin",
@@ -39,15 +39,11 @@
       "files": [
         {
           "path": "README.md",
-          "size": 4246
+          "size": 4192
         },
         {
           "path": "module.json",
           "size": 1924
-        },
-        {
-          "path": "bin/bt_fix",
-          "size": 67172
         },
         {
           "path": "scripts/bt_boot.sh",
@@ -60,12 +56,16 @@
         {
           "path": "scripts/bt_hook_uninstall.sh",
           "size": 835
+        },
+        {
+          "path": "bin/bt_fix",
+          "size": 67172
         }
       ]
     },
     "ioc-probe": {
       "status": "ready",
-      "description": "IOC CAN channel probe \u00e2\u20ac\u201d maps /dev/ipc/ioc interface, captures CAN bus data, dumps persistence addresses and factory ESD files. Replaces NDR probe.",
+      "description": "IOC CAN channel probe \u2014 maps /dev/ipc/ioc interface, captures CAN bus data, dumps persistence addresses and factory ESD files. Replaces NDR probe.",
       "standalone": true,
       "run_script": "ioc_probe_run.sh",
       "script_dir": "/scripts/IocProbe",
@@ -77,23 +77,23 @@
       "files": [
         {
           "path": "module.json",
-          "size": 414
+          "size": 403
+        },
+        {
+          "path": "scripts/ch6_capture.sh",
+          "size": 3009
+        },
+        {
+          "path": "scripts/ioc_probe.sh",
+          "size": 4479
+        },
+        {
+          "path": "scripts/ioc_probe_run.sh",
+          "size": 417
         },
         {
           "path": "bin/bap_a0.bin",
           "size": 6
-        },
-        {
-          "path": "scripts/ch6_capture.sh",
-          "size": 3103
-        },
-        {
-          "path": "scripts/ioc_probe.sh",
-          "size": 4616
-        },
-        {
-          "path": "scripts/ioc_probe_run.sh",
-          "size": 434
         }
       ]
     },
@@ -127,7 +127,7 @@
       "files": [
         {
           "path": "module.json",
-          "size": 991
+          "size": 967
         },
         {
           "path": "scripts/lte_setup.sh",
@@ -175,7 +175,7 @@
       "files": [
         {
           "path": "module.json",
-          "size": 1256
+          "size": 1242
         },
         {
           "path": "scripts/sysinfo_dump.sh",
@@ -183,13 +183,13 @@
         },
         {
           "path": "scripts/sysinfo_run.sh",
-          "size": 282
+          "size": 271
         }
       ]
     },
     "telnet": {
       "status": "tested",
-      "description": "Root shell via telnet (port 23) and raw ksh (port 2323). PCM /etc/ is read-only \u00e2\u20ac\u201d session-only, re-run after reboot.",
+      "description": "Root shell via telnet (port 23) and raw ksh (port 2323). PCM /etc/ is read-only \u2014 session-only, re-run after reboot.",
       "standalone": true,
       "run_script": "telnet_enable.sh",
       "script_dir": "/scripts/Telnet",
@@ -201,17 +201,17 @@
       "files": [
         {
           "path": "module.json",
-          "size": 413
+          "size": 401
         },
         {
           "path": "scripts/telnet_enable.sh",
-          "size": 1426
+          "size": 1377
         }
       ]
     },
     "usb-net": {
       "status": "tested",
-      "description": "Universal ASIX USB-Ethernet driver for PCM 3.1 / MMI3G+ / RNS-850. Supports AX88772 / 772A / 772B / 772C (and 88178 + Linksys/NetGear rebadges) by activating Harman's own AX88772B init path from later firmware. Brings up the link, gets DHCP (or static), and enables telnet. Loads from USB only \u00e2\u20ac\u201d never modifies the read-only firmware.",
+      "description": "Universal ASIX USB-Ethernet driver for PCM 3.1 / MMI3G+ / RNS-850. Supports AX88772 / 772A / 772B / 772C (and 88178 + Linksys/NetGear rebadges) by activating Harman's own AX88772B init path from later firmware. Brings up the link, gets DHCP (or static), and enables telnet. Loads from USB only \u2014 never modifies the read-only firmware.",
       "standalone": true,
       "run_script": "usb_net_run.sh",
       "script_dir": "/scripts/USBNet",
@@ -229,15 +229,15 @@
           "values": [
             {
               "value": "dhcp",
-              "label": "DHCP \u00e2\u20ac\u201d from your router/switch"
+              "label": "DHCP \u2014 from your router/switch"
             },
             {
               "value": "static",
-              "label": "Static 172.16.42.1 \u00e2\u20ac\u201d direct cable to a PC"
+              "label": "Static 172.16.42.1 \u2014 direct cable to a PC"
             },
             {
               "value": "lte",
-              "label": "LTE/internet \u00e2\u20ac\u201d DHCP + DNS (replaces lte-setup)"
+              "label": "LTE/internet \u2014 DHCP + DNS (replaces lte-setup)"
             }
           ]
         }
@@ -252,12 +252,12 @@
           "size": 1204
         },
         {
-          "path": "bin/devn-asix-universal.so",
-          "size": 75540
-        },
-        {
           "path": "scripts/usb_net_run.sh",
           "size": 4595
+        },
+        {
+          "path": "bin/devn-asix-universal.so",
+          "size": 75540
         }
       ]
     }

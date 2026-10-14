@@ -917,7 +917,7 @@ function usbDownloadRun() {
   usbSetStatus('ok', `Downloaded run.sh \u2014 ${mode} mode (${run.length} bytes)`);
 }
 
-const GITHUB_RAW = 'https://raw.githubusercontent.com/dspl1236/PCM-Forge/main/core';
+const GITHUB_RAW = 'https://raw.githubusercontent.com/BEJANYANV/Porsche-PCM/main/core';
 
 async function fetchBinary(url) {
   const r = await fetch(url);
@@ -1031,7 +1031,7 @@ function usbSetStatus(type, msg) {
 // ===== TAB 3: Toolkit (Manifest-Driven) =====
 let tkManifest = null;
 let tkRendered = false;
-const TK_RAW_BASE = 'https://raw.githubusercontent.com/dspl1236/PCM-Forge/main/';
+const TK_RAW_BASE = 'https://raw.githubusercontent.com/BEJANYANV/Porsche-PCM/main/';
 
 async function tkFetchManifest() {
   if (tkManifest) return tkManifest;

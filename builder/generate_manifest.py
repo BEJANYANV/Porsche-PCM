@@ -21,7 +21,7 @@ CORE_DIR = os.path.join(REPO_ROOT, 'core')
 OUT_DIR = os.path.join(REPO_ROOT, 'docs', 'app')
 OUT_FILE = os.path.join(OUT_DIR, 'manifest.json')
 
-RAW_BASE = 'https://raw.githubusercontent.com/dspl1236/PCM-Forge/main/'
+RAW_BASE = 'https://raw.githubusercontent.com/BEJANYANV/Porsche-PCM/main/'
 CORE_FILES = {
     'copie_scr_sh': 'core/copie_scr.sh',
     'forge_splash': 'core/bin/forge_splash',
