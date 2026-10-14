@@ -1,5 +1,5 @@
 #!/bin/ksh
-# PCM-Forge activation — https://github.com/dspl1236/PCM-Forge
+# PCM-Forge activation
 USBROOT="$1"
 [ -z "$USBROOT" ] && USBROOT="/fs/usb0"
 # --- status splash: RUNNING (forge_splash draws natively on Porsche; replaces showScreen) ---
