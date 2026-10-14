@@ -98,6 +98,14 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 
 .footer{text-align:center;margin-top:32px;padding:12px;font-family:var(--mono);font-size:11px;color:var(--text2);background:var(--surface);border-radius:8px;border:1px solid var(--border)}
 .footer a{color:var(--accent);text-decoration:none}
+.pw-gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;position:relative;z-index:2}
+.pw-card{width:100%;max-width:420px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px}
+.pw-title{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.pw-help{font-size:13px;color:var(--text2);margin-bottom:14px;line-height:1.5}
+.pw-row{display:flex;gap:10px}
+.pw-input{flex:1;font-family:var(--mono);font-size:18px;letter-spacing:2px;padding:12px 14px;background:var(--bg);border:2px solid var(--border);border-radius:8px;color:var(--text);outline:none}
+.pw-input:focus{border-color:var(--accent)}
+.pw-err{margin-top:10px;color:var(--red);font-size:12px;display:none}
 
 @media (max-width:720px){
   .app{padding:14px}
@@ -105,6 +113,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
   .tabs{flex-wrap:wrap}
   .tab{flex:1 1 50%;font-size:11px;padding:12px}
   .vin-row,.model-row,.port-row,.dl-row,.action-bar{flex-direction:column;align-items:stretch}
+  .pw-row{flex-direction:column}
   .card{padding:16px}
   .vin-input{font-size:16px;letter-spacing:2px}
   .vin-display{font-size:18px;letter-spacing:2px}
@@ -115,7 +124,19 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 </style>
 </head>
 <body>
-<div class="app">
+<div id="pw-gate" class="pw-gate">
+  <div class="pw-card">
+    <div class="pw-title">Access required</div>
+    <div class="pw-help">Enter password to load PCM-Forge.</div>
+    <div class="pw-row">
+      <input type="password" id="pw-input" class="pw-input" placeholder="Password" autocomplete="off" spellcheck="false">
+      <button class="btn btn-go" onclick="unlockApp()">Unlock</button>
+    </div>
+    <div id="pw-err" class="pw-err">Incorrect password</div>
+  </div>
+</div>
+
+<div id="app-root" class="app" style="display:none">
   <div class="header">
     <div class="logo">PCM-Forge</div>
     <h1>Porsche <span>Activation</span> Suite</h1>
@@ -265,6 +286,26 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 </div>
 
 <script>
+const APP_PASSWORD = '744744';
+
+function unlockApp() {
+  const input = document.getElementById('pw-input');
+  const err = document.getElementById('pw-err');
+  if (!input || !err) return;
+  if (input.value === APP_PASSWORD) {
+    document.getElementById('pw-gate').style.display = 'none';
+    document.getElementById('app-root').style.display = 'block';
+    err.style.display = 'none';
+    input.value = '';
+    return;
+  }
+  err.style.display = 'block';
+}
+
+document.getElementById('pw-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') unlockApp();
+});
+
 // ===== RSA Math (64-bit using BigInt) =====
 const N = 0x69f39c927ef94985n;
 const E = 0x4c1c5eeaf397c0b3n;
