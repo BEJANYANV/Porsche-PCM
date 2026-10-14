@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PCM-Forge</title>
 <style>
 @font-face{font-family:'JetBrains Mono';font-weight:400;src:url('fonts/JetBrainsMono-Regular.woff2') format('woff2')}
@@ -97,6 +98,20 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 
 .footer{text-align:center;margin-top:32px;padding:12px;font-family:var(--mono);font-size:11px;color:var(--text2);background:var(--surface);border-radius:8px;border:1px solid var(--border)}
 .footer a{color:var(--accent);text-decoration:none}
+
+@media (max-width:720px){
+  .app{padding:14px}
+  .header h1{font-size:22px}
+  .tabs{flex-wrap:wrap}
+  .tab{flex:1 1 50%;font-size:11px;padding:12px}
+  .vin-row,.model-row,.port-row,.dl-row,.action-bar{flex-direction:column;align-items:stretch}
+  .card{padding:16px}
+  .vin-input{font-size:16px;letter-spacing:2px}
+  .vin-display{font-size:18px;letter-spacing:2px}
+  .feat-grid{grid-template-columns:1fr}
+  .code-row{flex-direction:column;align-items:flex-start;gap:8px}
+  .code-val{font-size:14px;letter-spacing:1px}
+}
 </style>
 </head>
 <body>
